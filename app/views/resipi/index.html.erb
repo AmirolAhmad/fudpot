@@ -1,0 +1,18 @@
+<h1>Listing recipe</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+<% @resipi.each do |resipi| %>
+  <tr>
+    <td><%= resipi.title %></td>
+    <td><%= resipi.text %></td>
+    <td><%= link_to 'Show', resipi_path(resipi) %></td>
+    <td><%= link_to 'Edit', edit_resipi_path(resipi) %></td>
+  </tr>
+<% end %>
+</table>

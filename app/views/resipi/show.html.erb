@@ -1,0 +1,11 @@
+<p>
+  <strong>Title:</strong>
+  <%= @resipi.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @resipi.text %>
+</p>
+
+<%= link_to 'Back', resipi_index_path %> | <%= link_to 'Edit', edit_resipi_path(@resipi) %>
