@@ -1,9 +1,9 @@
 fudpot
 ======
 
-About recipe social media for chef and housewife based on ruby on rails
+[![Dependency Status](https://gemnasium.com/AmirolAhmad/fudpot.svg)](https://gemnasium.com/AmirolAhmad/fudpot) [![ProjectStatus](http://stillmaintained.com/AmirolAhmad/fudpot.png)](http://stillmaintained.com/AmirolAhmad/fudpot)
 
-== README
+About recipe social media for chef and housewife based on ruby on rails
 
 ## Ruby Version
 
@@ -17,10 +17,10 @@ About recipe social media for chef and housewife based on ruby on rails
 
 ## Database Creation
 
-* create pgsql database name fudpot
+create pgsql database name fudpot
 
 `CREATE DATABASE fudpot`
 
-* run migration
+run migration
 
 `rake db:migrate`
