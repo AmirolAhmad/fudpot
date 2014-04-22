@@ -5,29 +5,22 @@ About recipe social media for chef and housewife based on ruby on rails
 
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby Version
 
-Things you may want to cover:
+2.1.1
 
-* Ruby version
+## System Dependencies
 
-* System dependencies
+* pgsql
+* better_errors
+* binding_of_callers
 
-* Configuration
+## Database Creation
 
-* Database creation
+* create pgsql database name fudpot
 
-* Database initialization
+`CREATE DATABASE fudpot`
 
-* How to run the test suite
+* run migration
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+`rake db:migrate`
