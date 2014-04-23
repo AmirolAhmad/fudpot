@@ -8,4 +8,9 @@
   <%= @resipi.text %>
 </p>
 
+<p>
+	<strong>Picture:</strong><br />
+	<%= image_tag "../uploads/" + @resipi.filename, :width => '200px' %>
+</p>
+
 <%= link_to 'Back', resipi_index_path %> | <%= link_to 'Edit', edit_resipi_path(@resipi) %>

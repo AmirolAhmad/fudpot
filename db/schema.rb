@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140422145753) do
   create_table "resipis", force: true do |t|
     t.string   "title"
     t.text     "text"
+    t.string   "filename"
+    t.string   "mime_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

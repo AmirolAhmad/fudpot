@@ -1,5 +1,5 @@
 <h1>Listing recipe</h1>
- 
+<%= link_to 'New recipe', new_resipi_path %>
 <table>
   <tr>
     <th>Title</th>
@@ -13,6 +13,7 @@
     <td><%= resipi.text %></td>
     <td><%= link_to 'Show', resipi_path(resipi) %></td>
     <td><%= link_to 'Edit', edit_resipi_path(resipi) %></td>
+    <td><%= link_to 'Delete', resipi_path(resipi), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

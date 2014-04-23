@@ -11,7 +11,17 @@ class ResipiController < ApplicationController
 		#to inspect the output
 		#render plain: params[:resipi].inspect
 
-		@resipi = Resipi.new(resipi_params)
+		@resipi = Resipi.new(resipi_params) do |t|
+			uploaded_io = params[:resipi][:image]
+
+			if params[:resipi][:image]
+				File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+		    		file.write(uploaded_io.read)
+		    		t.filename = uploaded_io.original_filename
+		    		t.mime_type = uploaded_io.content_type
+		    	end
+		    end
+		end
 
 		if @resipi.save
 			redirect_to @resipi
@@ -36,6 +46,13 @@ class ResipiController < ApplicationController
 
 	def show
 		@resipi = Resipi.find(params[:id])
+	end
+
+	def destroy
+		@resipi = Resipi.find(params[:id])
+		@resipi.destroy
+
+		redirect_to resipi_index_path
 	end
 
 	private
