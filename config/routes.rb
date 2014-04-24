@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'main/index'
+  resources :users
   resources :resipi
+  get 'main/index'
+  match '/signup',  to: 'users#new',            via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
