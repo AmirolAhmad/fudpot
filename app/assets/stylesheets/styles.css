@@ -17,3 +17,10 @@ body {
 	color:#333;
 	background-color:#fff;
 }
+
+.dropdown-toggle.avatar,
+.dropdown-toggle.avatar:active {
+    padding-top: 4px;
+    padding-bottom: 2px;
+    line-height: 44px;
+}
