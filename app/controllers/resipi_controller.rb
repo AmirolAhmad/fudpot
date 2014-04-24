@@ -1,4 +1,5 @@
 class ResipiController < ApplicationController
+	
 	def index
 		@resipi = Resipi.all
 	end
@@ -8,9 +9,6 @@ class ResipiController < ApplicationController
 	end
 
 	def create
-		#to inspect the output
-		#render plain: params[:resipi].inspect
-
 		@resipi = Resipi.new(resipi_params) do |t|
 			uploaded_io = params[:resipi][:image]
 
@@ -24,6 +22,7 @@ class ResipiController < ApplicationController
 		end
 
 		if @resipi.save
+			flash[:success] = "Recipe has been created!"
 			redirect_to @resipi
 		else
 			render 'new'

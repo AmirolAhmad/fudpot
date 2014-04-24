@@ -10,12 +10,60 @@
 }
 
 body {
+    background: url("../images/bg-food.png") repeat scroll 0 0 #FDF7E9;
 	font-family: 'proxima_nova_alt_regular', sans-serif;
 	font-size:14px;
     padding-top: 60px;
+    padding-bottom: 60px;
 	line-height:1.42857143;
 	color:#333;
 	background-color:#fff;
+}
+
+.navbar-default {
+    background: url('../images/bg-menu.png') repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+    color: #FFF3E4;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    background-color: transparent;
+    color: #FFF3E4;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background: none repeat scroll 0 0 rgba(245, 241, 235, 0.25);
+    color: #FFF3E4; 
+}
+
+.navbar-default .navbar-nav > li > a  {
+    background-color: transparent;
+    color: #FFF3E4;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    transition: background 0.15s linear 0s;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background: none repeat scroll 0 0 rgba(245, 241, 235, 0.25);
+    color: #FFF3E4;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background: none repeat scroll 0 0 rgba(245, 241, 235, 0.25);
+    color: #FFF3E4;
 }
 
 .dropdown-toggle.avatar,
@@ -23,4 +71,25 @@ body {
     padding-top: 4px;
     padding-bottom: 2px;
     line-height: 44px;
+}
+
+.form-bg {
+    background: url("../images/bg-profile.png") repeat scroll 0 0 #FDF7E9;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+.jumbotron {
+    background: url("../images/bg-profile.png") repeat scroll 0 0 #FDF7E9;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.jumbotron p {
+    font-size: 16px;
+}
+
+.jumbotron h2 {
+    font-size: 26px;
+    font-weight: 800;
 }

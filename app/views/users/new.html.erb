@@ -1,7 +1,7 @@
 <% provide(:title, 'Sign up') %>
 
 <div class="row">
-  <div class="col-md-5 col-md-offset-3">
+  <div class="col-md-5 col-md-offset-3 form-bg">
 
     <div class="page-header">
       <h1>Sign up now <small>Show off your recipe list</small></h1>
@@ -10,6 +10,7 @@
     <%= form_for(@user) do |f| %>
     <form class="form-horizontal" role="form">
       <%= render 'shared/error_messages' %>
+      
       <div class="form-group">
         <%= f.text_field :name, class: 'form-control', placeholder: 'Full name' %>
       </div>
@@ -29,7 +30,7 @@
       <div class="form-group">
         <div class="checkbox">
           <label>
-            <input type="checkbox"> Remember me
+            <input type="checkbox"> I am agree with the terms and conditions
           </label>
         </div>
       </div>
