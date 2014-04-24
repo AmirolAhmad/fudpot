@@ -9,7 +9,7 @@
 
     <%= form_for(@user) do |f| %>
     <form class="form-horizontal" role="form">
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
 
       <div class="form-group">
         <center><%= gravatar_for @user, size: 220 %></center>

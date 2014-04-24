@@ -9,3 +9,17 @@
   <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus condimentum mollis.</p>
 	<center><%= gravatar_for @user, size: 170 %></center>
 </div>
+
+<div class="row">
+
+<div class="col-md-4">
+  <% if @user.menus.any? %>
+    <h3>Recipe (<%= @user.menus.count %>)</h3>
+    <ol class="menus">
+      <%= render @menus %>
+    </ol>
+    <%= will_paginate @menus %>
+  <% end %>
+</div>
+
+</div>

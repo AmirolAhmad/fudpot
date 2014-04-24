@@ -1,6 +1,8 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+		has_many :menus, dependent: :destroy
+
 		# users.password_hash in the database is a :string
   	include BCrypt
 
