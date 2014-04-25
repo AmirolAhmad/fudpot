@@ -14,28 +14,27 @@
 
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= menu.title %>
-          <div class="btn-group btn-group-xs pull-right">
-            <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span>"), menu_path(menu), class: 'btn btn-primary' %>
-            <% if current_user?(menu.user) %>
-              <%= link_to raw("<span class=\"glyphicon glyphicon-pencil\"></span>"), '#', class: 'btn btn-info' %>
-              <%= link_to raw("<span class=\"glyphicon glyphicon-remove\"></span>"), menu_path(menu), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, title: menu.title %>
-            <% end %>
-          </div>
+          <%=h truncate(menu.title) %>
         </h3>
       </div>
       <div class="panel-body">
-        <%= image_tag "../uploads/" + menu.filename, :height => '328px', :class => 'img-thumbnail' %>
-        <p><%= menu.ingredient %></p>
+        <%= image_tag "../uploads/" + menu.filename, :class => 'img-thumbnail img-recipe' %>
+        <p><%=h truncate(menu.ingredient) %></p>
       </div>
       <div class="panel-footer">
-        <p><%= menu.description %></p>
+        <p><%= h wrap(truncate(menu.description, :length => 80)) %></p>
         <p style="line-height:12px;">
           <small>
             Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
             by <%= link_to menu.user.name, user %>
           </small>
         <p>
+        <div class="btn-group btn-group-justified">
+          <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span>"), menu_path(menu), class: 'btn btn-primary' %>
+          <% if current_user?(menu.user) %>
+            <%= link_to raw("<span class=\"glyphicon glyphicon-remove\"></span>"), menu_path(menu), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, title: menu.title %>
+          <% end %>
+        </div>
       </div>
 
     </div>
