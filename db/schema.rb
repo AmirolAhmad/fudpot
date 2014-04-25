@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140424164438) do
   add_index "menus", ["user_id", "created_at"], name: "index_menus_on_user_id_and_created_at", using: :btree
 
   create_table "resipis", force: true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.text     "text"
     t.string   "filename"
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140424164438) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "resipis", ["user_id", "created_at"], name: "index_resipis_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
