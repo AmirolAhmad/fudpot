@@ -1,7 +1,7 @@
 fudpot
 ======
 
-[![Dependency Status](https://gemnasium.com/AmirolAhmad/fudpot.svg)](https://gemnasium.com/AmirolAhmad/fudpot) [![ProjectStatus](http://stillmaintained.com/AmirolAhmad/fudpot.png)](http://stillmaintained.com/AmirolAhmad/fudpot)
+[![Dependency Status](https://gemnasium.com/AmirolAhmad/fudpot.svg)](https://gemnasium.com/AmirolAhmad/fudpot) [![ProjectStatus](http://stillmaintained.com/AmirolAhmad/fudpot.png)](http://stillmaintained.com/AmirolAhmad/fudpot) [![Code Climate](https://codeclimate.com/github/AmirolAhmad/fudpot.png)](https://codeclimate.com/github/AmirolAhmad/fudpot)
 
 About recipe social media for chef and housewife based on ruby on rails
 
