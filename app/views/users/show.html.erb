@@ -11,15 +11,10 @@
 </div>
 
 <div class="row">
-
-<div class="col-md-4">
   <% if @user.menus.any? %>
-    <h3>Recipe (<%= @user.menus.count %>)</h3>
-    <ol class="menus">
-      <%= render @menus %>
-    </ol>
-    <%= will_paginate @menus %>
+      <h3>All my list of recipe (<%= @user.menus.count %>)</h3>
+        <%= render @menus %>
+      </div>
+      <%= will_paginate @menus %>
   <% end %>
-</div>
-
 </div>
