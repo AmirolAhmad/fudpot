@@ -10,7 +10,7 @@
 }
 
 body {
-    background: url("../images/bg-food.png") repeat scroll 0 0 #FDF7E9;
+    /*background: url("../images/bg-food.png") repeat scroll 0 0 #FDF7E9;*/
 	font-family: 'proxima_nova_alt_regular', sans-serif;
 	font-size:14px;
     padding-top: 60px;
@@ -20,7 +20,7 @@ body {
 	background-color:#fff;
 }
 
-.navbar-default {
+/*.navbar-default {
     background: url('../images/bg-menu.png') repeat-x scroll 0 0 rgba(0, 0, 0, 0);
     border-color: transparent;
 }
@@ -64,7 +64,7 @@ body {
 .navbar-default .navbar-nav > .open > a:focus {
     background: none repeat scroll 0 0 rgba(245, 241, 235, 0.25);
     color: #FFF3E4;
-}
+}*/
 
 .dropdown-toggle.avatar,
 .dropdown-toggle.avatar:active {
@@ -73,11 +73,11 @@ body {
     line-height: 44px;
 }
 
-.form-bg {
+/*.form-bg {
     background: url("../images/bg-profile.png") repeat scroll 0 0 #FDF7E9;
     border-radius: 5px;
     padding: 0 20px;
-}
+}*/
 
 .jumbotron {
     background: url("../images/bg-profile.png") repeat scroll 0 0 #FDF7E9;

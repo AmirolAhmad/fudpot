@@ -6,7 +6,7 @@ class MenusController < ApplicationController
   end
 
   def create
-	@menu = current_user.menus.build(menu_params)
+  	@menu = current_user.menus.build(menu_params)
     if @menu.save
       flash[:success] = "Recipe created!"
       redirect_to root_url
@@ -16,7 +16,6 @@ class MenusController < ApplicationController
   end
 
   def destroy
-
   end
 
   private
