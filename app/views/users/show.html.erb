@@ -1,9 +1,5 @@
 <% provide(:title, @user.name) %>
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
 <div class="jumbotron">
   <h2 class="text-center"><%= @user.name %></h2>
   <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus condimentum mollis.</p>
@@ -12,14 +8,36 @@
 
 <div class="row">
 
-<div class="col-md-4">
-  <% if @user.menus.any? %>
-    <h3>Recipe (<%= @user.menus.count %>)</h3>
-    <ol class="menus">
-      <%= render @menus %>
-    </ol>
-    <%= will_paginate @menus %>
-  <% end %>
+<div class="row">
+<% @menus.each do |menu,user| %>
+  <div class="col-md-3">
+
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= menu.title %>
+          <p class="pull-right" style="line-height:9px;text-align:right;">
+            <small>
+              Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
+              by <%= link_to menu.user.name, user %>
+          </small>
+          </p>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= image_tag "../uploads/codercat.png" , :height => '328px', :class => 'img-thumbnail' %>
+        <p><%= menu.ingredient %></p>
+      </div>
+      <div class="panel-footer">
+        <%= menu.description %>
+      </div>
+
+    </div>
+    
+  </div>
+  <%= will_paginate @menus %>
+<% end %>
 </div>
 
 </div>
