@@ -3,12 +3,16 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
-  def new
-  	@user = User.new
-  end
-
   def index
     @users = User.paginate(page: params[:page])
+  end
+
+  def new
+    if current_user
+      redirect_to current_user
+    else
+      @user = User.new
+    end
   end
 
   def destroy
