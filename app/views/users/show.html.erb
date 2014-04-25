@@ -7,8 +7,6 @@
 </div>
 
 <div class="row">
-
-<div class="row">
 <% @menus.each do |menu,user| %>
   <div class="col-md-3">
 
@@ -17,12 +15,13 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <%= menu.title %>
-          <p class="pull-right" style="line-height:9px;text-align:right;">
-            <small>
-              Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
-              by <%= link_to menu.user.name, user %>
-          </small>
-          </p>
+          <div class="btn-group btn-group-xs pull-right">
+            <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span>"), menu_path(menu), class: 'btn btn-primary' %>
+            <% if current_user?(menu.user) %>
+              <%= link_to raw("<span class=\"glyphicon glyphicon-pencil\"></span>"), '#', class: 'btn btn-info' %>
+              <%= link_to raw("<span class=\"glyphicon glyphicon-remove\"></span>"), menu_path(menu), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, title: menu.title %>
+            <% end %>
+          </div>
         </h3>
       </div>
       <div class="panel-body">
@@ -30,7 +29,13 @@
         <p><%= menu.ingredient %></p>
       </div>
       <div class="panel-footer">
-        <%= menu.description %>
+        <p><%= menu.description %></p>
+        <p style="line-height:12px;">
+          <small>
+            Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
+            by <%= link_to menu.user.name, user %>
+          </small>
+        <p>
       </div>
 
     </div>
@@ -38,6 +43,4 @@
   </div>
   <%= will_paginate @menus %>
 <% end %>
-</div>
-
 </div>

@@ -1,0 +1,19 @@
+<p>
+  <strong>Title:</strong>
+  <%= @menu.title %>
+</p>
+ 
+<p>
+  <strong>Ingredient:</strong>
+  <%= @menu.ingredient %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @menu.description %>
+</p>
+
+<p>
+	<strong>Picture:</strong><br />
+	<%= image_tag "../uploads/" + @menu.filename, :width => '200px' %>
+</p>

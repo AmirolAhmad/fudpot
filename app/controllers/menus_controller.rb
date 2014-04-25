@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
-  before_action :signed_in_user, only: [:index, :create, :destroy]
+  before_action :signed_in_user, only: [:index, :create]
+  before_action :correct_user,   only: :destroy
 
   def index
     @menus = Menu.paginate(page: params[:page])
@@ -27,13 +28,35 @@ class MenusController < ApplicationController
     end
   end
 
+  def show
+    @menu = Menu.find(params[:id])
+  end
+
   def destroy
+    @menu.destroy
+
+    redirect_to current_user
+    flash[:success] = "Recipe has been deleted."
   end
 
   private
 
   def menu_params
     params.require(:menu).permit(:title, :ingredient, :description)
+  end
+
+  # Before filters
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, danger: "Please sign in first."
+    end
+  end
+
+  def correct_user
+    @menu = current_user.menus.find_by(id: params[:id])
+
+    redirect_to root_url if @menu.nil?
   end
 
 end
