@@ -4,5 +4,6 @@ class Menu < ActiveRecord::Base
 	validates :title, presence: true, length: { maximum: 50 }
 	validates :ingredient, presence: true, length: { maximum: 10000 }
 	validates :description, presence: true, length: { maximum: 10000 }
+	validates :filename, presence: true
 	validates :user_id, presence: true
 end

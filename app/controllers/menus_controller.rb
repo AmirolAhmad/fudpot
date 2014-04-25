@@ -7,9 +7,20 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = current_user.menus.build(menu_params)
+    @menu = current_user.menus.new(menu_params) do |t|
+      uploaded_io = params[:menu][:image]
+
+      if params[:menu][:image]
+        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+          t.filename = uploaded_io.original_filename
+          t.mime_type = uploaded_io.content_type
+        end
+      end
+    end
+
     if @menu.save
-      flash[:success] = "Recipe created!"
+      flash[:success] = "Recipe has been created!"
       redirect_to root_url
     else
       render 'menus/index'
