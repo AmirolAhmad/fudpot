@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:index, :create, :destroy]
 
   def index
     @menus = Menu.paginate(page: params[:page])
