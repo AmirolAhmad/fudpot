@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20140424164438) do
   enable_extension "plpgsql"
 
   create_table "menus", force: true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.text     "ingredient"
     t.text     "description"
-    t.integer  "user_id"
+    t.string   "filename"
+    t.string   "mime_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

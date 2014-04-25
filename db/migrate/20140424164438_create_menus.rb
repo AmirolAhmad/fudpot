@@ -1,10 +1,12 @@
 class CreateMenus < ActiveRecord::Migration
   def change
     create_table :menus do |t|
+      t.integer :user_id
       t.string :title
       t.text :ingredient
       t.text :description
-      t.integer :user_id
+      t.string :filename
+      t.string :mime_type
 
       t.timestamps
     end
