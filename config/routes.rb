@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :resipi
   resources :menus, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   root 'main#index'
