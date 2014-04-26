@@ -1,5 +1,15 @@
 <% provide(:title, @user.name) %>
 
+<div class="row">
+  <div class="col-md-2">
+    <%= gravatar_for@user, size: 180, :class => 'img-rounded' %>
+  </div>
+  <div class="col-md-10">
+    <h2><%= @user.name %></h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus condimentum mollis.</p>
+  </div>
+</div>
+
 <div class="jumbotron">
   <h2 class="text-center"><%= @user.name %></h2>
   <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus condimentum mollis.</p>
