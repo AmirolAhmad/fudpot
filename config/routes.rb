@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-
   resources :users do
     member do
       get :following, :followers
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :password_resets
   resources :menus, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   root 'main#index'
