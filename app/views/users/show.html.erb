@@ -1,67 +1,75 @@
 <% provide(:title, @user.name) %>
 
-<div class="row">
-  <div class="col-md-2">
-    <%= gravatar_for@user, size: 180, :class => 'img-rounded' %>
-  </div>
-  <div class="col-md-10">
-    <h2>
-      <%= @user.name %>
-      <%= render 'follow_form' if signed_in? %>
-    </h2>
-    <p><%= @user.intro %></p>
-    <p><i class="fa fa-globe"></i> <%= link_to @user.url, url_with_protocol(@user.url), target: '_blank' %> | <i class="fa fa-map-marker"></i> <%= @user.location %></p>
-    <p><small><i class="fa fa-clock-o"></i> Joined on <%= time_tag(@user.created_at, :format => '%B %d, %Y') %></small></p>
-    <!-- Showing follower and following -->
-    <% @user ||= current_user %>
-    <div class="btn-group btn-group-xs">
-      <a href="<%= followers_user_path(@user) %>" class="btn btn-default"> Followers</a>
-      <button type="button" class="btn btn-default" id="followers"><%= @user.followers.count %></button>
-    </div>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 
-    <div class="btn-group btn-group-xs">
-      <a href="<%= following_user_path(@user) %>" class="btn btn-default"> Following</a>
-      <button type="button" class="btn btn-default" id="following"><%= @user.followed_users.count %></button>
+<article class="color-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <%= gravatar_for@user, size: 250, :class => 'img-rounded' %>
+      </div>
+      <div class="col-md-9">
+        <h2>
+          <%= @user.name %>
+          <%= render 'follow_form' if signed_in? %>
+        </h2>
+        <p><%= @user.intro %></p>
+        <p><i class="fa fa-globe"></i> <%= link_to @user.url, url_with_protocol(@user.url), target: '_blank' %> | <i class="fa fa-map-marker"></i> <%= @user.location %></p>
+        <p><small><i class="fa fa-clock-o"></i> Joined on <%= time_tag(@user.created_at, :format => '%B %d, %Y') %></small></p>
+        <!-- Showing follower and following -->
+        <% @user ||= current_user %>
+        <div class="btn-group btn-group-xs">
+          <a href="<%= followers_user_path(@user) %>" class="btn btn-default" id="followers">Followers <span class="btn-tip"><%= @user.followers.count %></span></a>
+        </div>
+
+        <div class="btn-group btn-group-xs">
+          <a href="<%= following_user_path(@user) %>" class="btn btn-default" id="following">Following <span class="btn-tip"><%= @user.followed_users.count %></span></a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</article>
 
 <hr>
 
-<div class="row">
-<% @menus.each do |menu,user| %>
-  <div class="col-md-3">
+<div class="container">
+  <div class="row">
+  <% @menus.each do |menu,user| %>
+    <div class="col-md-3">
 
-    <div class="panel panel-default">
+      <div class="panel panel-default">
 
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <%=h truncate(menu.title) %>
-        </h3>
-      </div>
-      <div class="panel-body">
-        <%= image_tag "../uploads/" + menu.filename, :class => 'img-thumbnail img-recipe' %>
-        <p><%=h truncate(menu.ingredient) %></p>
-      </div>
-      <div class="panel-footer">
-        <p><%= h wrap(truncate(menu.description, :length => 80)) %></p>
-        <p style="line-height:12px;">
-          <small>
-            Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
-            by <%= link_to menu.user.name, user %>
-          </small>
-        <p>
-        <div class="btn-group btn-group-justified">
-          <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span>"), menu_path(menu), class: 'btn btn-primary' %>
-          <% if current_user?(menu.user) %>
-            <%= link_to raw("<span class=\"glyphicon glyphicon-remove\"></span>"), menu_path(menu), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, title: menu.title %>
-          <% end %>
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%=h truncate(menu.title) %>
+          </h3>
         </div>
-      </div>
+        <div class="panel-body">
+          <%= image_tag "../uploads/" + menu.filename, :class => 'img-thumbnail img-recipe' %>
+          <p><%=h truncate(menu.ingredient) %></p>
+        </div>
+        <div class="panel-footer">
+          <p><%= h wrap(truncate(menu.description, :length => 80)) %></p>
+          <p style="line-height:12px;">
+            <small>
+              Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
+              by <%= link_to menu.user.name, user %>
+            </small>
+          <p>
+          <div class="btn-group btn-group-justified">
+            <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span>"), menu_path(menu), class: 'btn btn-primary' %>
+            <% if current_user?(menu.user) %>
+              <%= link_to raw("<span class=\"glyphicon glyphicon-remove\"></span>"), menu_path(menu), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, title: menu.title %>
+            <% end %>
+          </div>
+        </div>
 
+      </div>
+      
     </div>
-    
+    <%= will_paginate @menus %>
+  <% end %>
   </div>
-  <%= will_paginate @menus %>
-<% end %>
 </div>

@@ -1,34 +1,32 @@
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+<div class="container">
+  <div class="row">
+  <% @menus.each do |menu,user| %>
+    <div class="col-md-3">
 
-<div class="row">
-<% @menus.each do |menu,user| %>
-  <div class="col-md-3">
+      <div class="panel panel-default">
 
-    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%=h truncate(menu.title) %>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <%= image_tag "../uploads/" + menu.filename, :class => 'img-thumbnail img-recipe' %>
+        </div>
+        <div class="panel-footer">
+          <p style="line-height:12px;">
+            <small>
+              Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
+              by <%= link_to menu.user.name, user %>
+            </small>
+          <p>
+          <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span> View more details"), menu_path(menu), class: 'btn btn-primary btn-embossed btn-block' %>
+        </div>
 
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <%=h truncate(menu.title) %>
-        </h3>
       </div>
-      <div class="panel-body">
-        <%= image_tag "../uploads/" + menu.filename, :class => 'img-thumbnail img-recipe' %>
-      </div>
-      <div class="panel-footer">
-        <p style="line-height:12px;">
-          <small>
-            Posted <%= time_ago_in_words(menu.created_at) %> ago <br />
-            by <%= link_to menu.user.name, user %>
-          </small>
-        <p>
-        <%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span> View more details"), menu_path(menu), class: 'btn btn-primary btn-block' %>
-      </div>
-
+      
     </div>
-    
+  	<%= will_paginate @menus %>
+  <% end %>
   </div>
-	<%= will_paginate @menus %>
-<% end %>
 </div>

@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
     	flash[:success] = "Welcome to the Recipe!"
-      redirect_to @user
+      redirect_to current_user
     else
       render 'new'
     end

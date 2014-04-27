@@ -15,11 +15,11 @@ html {
 }
 
 body {
-    /*background: url("../images/bg-food.png") repeat scroll 0 0 #FDF7E9;*/
+  /*background: url("../images/bg-slash_it.png") repeat scroll 0 0 #FDF7E9;*/
 	font-family: 'proxima_nova_alt_regular', sans-serif;
 	font-size:14px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 	line-height:1.42857143;
 	color:#333;
 	background-color:#fff;
@@ -131,8 +131,14 @@ body {
     height: 0;
 }
 
-.details h5 {
+.details p {
   display: inline-block;
   margin-top: -20px;
   padding-right: 10px;
+}
+
+.col-md-5, .col-md-offset-3 {
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
 }
