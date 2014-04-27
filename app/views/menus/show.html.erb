@@ -1,22 +1,13 @@
-<p>
-  <strong>Title:</strong>
-  <%= @menu.title %>
-</p>
-
-<p>
-  <strong>By:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Level:</strong>
-  <%= @level.description %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @category.description %>
-</p>
+<div class="page-header">
+  <h1><%= @menu.title %> <small>By: <%= link_to @user.name, user_path %></small></h1>
+  <p class="lead"><%= @menu.description %></p>
+  <div class="details">
+    <h5>Level <span class="label label-primary"><%= @level.description %></span></h5>
+    <h5>Category <span class="label label-primary"><%= @category.description %></span></h5>
+    <h5>Serve for <span class="label label-primary"><%= @menu.serve %> people</span></h5>
+    <h5>Cooking Time <span class="label label-primary"><%= @menu.cooking_time %></span></h5>
+  </div>
+</div>
  
 <p>
   <strong>Ingredient:</strong>
@@ -28,22 +19,8 @@
   <%= simple_format(@menu.preparation) %>
 </p>
  
-<p>
-  <strong>Serve for:</strong>
-  <%= @menu.serve %>
-</p>
- 
-<p>
-  <strong>Cooking Time:</strong>
-  <%= @menu.cooking_time %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @menu.description %>
-</p>
 
 <p>
 	<strong>Picture:</strong><br />
-	<%= image_tag "../uploads/" + @menu.filename, :width => '200px' %>
+	<%= image_tag "../uploads/" + @menu.filename, :width => '200px', class: 'img-rounded' %>
 </p>

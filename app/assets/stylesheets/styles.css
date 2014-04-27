@@ -130,3 +130,9 @@ body {
 .list-inline {
     height: 0;
 }
+
+.details h5 {
+  display: inline-block;
+  margin-top: -20px;
+  padding-right: 10px;
+}

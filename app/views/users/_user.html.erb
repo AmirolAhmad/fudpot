@@ -11,7 +11,7 @@
 	  | <%= link_to "delete", user, method: :delete,
 	                                data: { confirm: "You sure?" } %>
 			<% end %>
-	    <p><i class="fa fa-map-marker"></i> Selangor, Malaysia</p>
+	    <p><i class="fa fa-map-marker"></i> <%= user.location %></p>
 	  </div>
 	</div>
 </div>
