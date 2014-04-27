@@ -1,29 +1,26 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Menus:</b> <%= @user.menus.count %></span>
-    </section>
-    <section>
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
-          <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
-  <div class="span8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
+
+<div class="media">
+  <div class="pull-left">
+    <%= gravatar_for @user %>
+  </div>
+  <div class="media-body">
+    <h2 class="media-heading">
+      <%= link_to @user.name, @user %>
+    </h2>
   </div>
 </div>
+
+<hr>
+
+<h3><strong>List of <%= @title %></strong></h3>
+<br />
+
+<% if @users.any? %>
+<div class="row">
+    <%= render @users %>
+</div>
+<%= will_paginate %>
+<% end %>
+
+<hr>

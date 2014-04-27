@@ -1,8 +1,17 @@
-<li>
-  <%= gravatar_for user %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
-</li>
+<div class="col-md-3">
+	<div class="media">
+	  <div class="pull-left">
+	    <%= gravatar_for user, size: '60' %>
+	  </div>
+	  <div class="media-body">
+	    <h4 class="media-heading">
+	      <%= link_to user.name, user %>
+	    </h4>
+	    <% if current_user.admin? && !current_user?(user) %>
+	  | <%= link_to "delete", user, method: :delete,
+	                                data: { confirm: "You sure?" } %>
+			<% end %>
+	    <p><i class="fa fa-map-marker"></i> Selangor, Malaysia</p>
+	  </div>
+	</div>
+</div>
