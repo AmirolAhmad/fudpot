@@ -5,6 +5,9 @@ class MenusController < ApplicationController
   def index
     @menus = Menu.paginate(page: params[:page])
     @menu = current_user.menus.build
+
+    @levels = Level.all
+    @categories = Category.all
   end
 
   def create
@@ -30,6 +33,9 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
+    @level = Level.find(@menu.level_id)
+    @category = Category.find(@menu.category_id)
+    @user = User.find(@menu.user_id)
   end
 
   def destroy
@@ -42,7 +48,7 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.require(:menu).permit(:title, :ingredient, :description)
+    params.require(:menu).permit(:title, :ingredient, :description, :preparation, :serve, :cooking_time, :level_id, :category_id)
   end
 
   # Before filters

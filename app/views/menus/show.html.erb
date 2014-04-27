@@ -2,12 +2,42 @@
   <strong>Title:</strong>
   <%= @menu.title %>
 </p>
+
+<p>
+  <strong>By:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @level.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @category.description %>
+</p>
  
 <p>
   <strong>Ingredient:</strong>
-  <%= @menu.ingredient %>
+  <%= simple_format(@menu.ingredient) %>
 </p>
  
+<p>
+  <strong>Preparation:</strong>
+  <%= simple_format(@menu.preparation) %>
+</p>
+ 
+<p>
+  <strong>Serve for:</strong>
+  <%= @menu.serve %>
+</p>
+ 
+<p>
+  <strong>Cooking Time:</strong>
+  <%= @menu.cooking_time %>
+</p>
+
 <p>
   <strong>Description:</strong>
   <%= @menu.description %>

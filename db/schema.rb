@@ -11,22 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426145107) do
+ActiveRecord::Schema.define(version: 20140427064843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "levels", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "menus", force: true do |t|
     t.integer  "user_id"
+    t.integer  "level_id"
+    t.integer  "category_id"
     t.string   "title"
     t.text     "ingredient"
     t.text     "description"
     t.string   "filename"
     t.string   "mime_type"
+    t.text     "preparation"
+    t.string   "serve"
+    t.string   "cooking_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "menus", ["category_id"], name: "index_menus_on_category_id", using: :btree
+  add_index "menus", ["level_id"], name: "index_menus_on_level_id", using: :btree
   add_index "menus", ["user_id", "created_at"], name: "index_menus_on_user_id_and_created_at", using: :btree
 
   create_table "relationships", force: true do |t|
