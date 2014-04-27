@@ -20,7 +20,7 @@
     </div>
 
     <div class="btn-group btn-group-xs">
-      <a href="<%= followers_user_path(@user) %>" class="btn btn-default"> Following</a>
+      <a href="<%= following_user_path(@user) %>" class="btn btn-default"> Following</a>
       <button type="button" class="btn btn-default" id="following"><%= @user.followed_users.count %></button>
     </div>
   </div>
