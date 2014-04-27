@@ -40,21 +40,12 @@ ActiveRecord::Schema.define(version: 20140426145107) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
-  create_table "resipis", force: true do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "text"
-    t.string   "filename"
-    t.string   "mime_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "resipis", ["user_id", "created_at"], name: "index_resipis_on_user_id_and_created_at", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "intro"
+    t.string   "location"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"

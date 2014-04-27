@@ -9,8 +9,8 @@
       <%= @user.name %>
       <%= render 'follow_form' if signed_in? %>
     </h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus condimentum mollis.</p>
-    <p><i class="fa fa-globe"></i> amirolahmad.com | <i class="fa fa-map-marker"></i> Selangor, Malaysia</p>
+    <p><%= @user.intro %></p>
+    <p><i class="fa fa-globe"></i> <%= link_to @user.url, url_with_protocol(@user.url), target: '_blank' %> | <i class="fa fa-map-marker"></i> <%= @user.location %></p>
     <p><small><i class="fa fa-clock-o"></i> Joined on <%= time_tag(@user.created_at, :format => '%B %d, %Y') %></small></p>
     <!-- Showing follower and following -->
     <% @user ||= current_user %>
