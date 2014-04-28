@@ -142,3 +142,7 @@ body {
   border: 1px solid #CCCCCC;
   border-radius: 4px;
 }
+
+.panel-heading {
+  height: 52px;
+}

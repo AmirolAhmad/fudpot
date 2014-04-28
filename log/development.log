@@ -64265,3 +64265,356 @@ Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 3.1ms)
   [1m[36m (0.2ms)[0m  [1mBEGIN[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "description", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-04-28 06:25:22.050404"], ["description", "Vegetarian"], ["updated_at", "2014-04-28 06:25:22.050404"]]
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-28 14:41:58 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainController#index as HTML
+  [1m[35mMenu Load (1.6ms)[0m  SELECT  "menus".* FROM "menus"   ORDER BY created_at DESC LIMIT 30 OFFSET 0
+  Rendered main/index.html.erb within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 127ms
+
+ArgumentError - wrong number of arguments (2 for 1):
+   () Users/anchordesk/Documents/Projects/fudpot/app/views/main/index.html.erb:10:in `block in _app_views_main_index_html_erb___3792441971629584608_2176679420'
+  activerecord (4.1.0) lib/active_record/relation/delegation.rb:46:in `each'
+   () Users/anchordesk/Documents/Projects/fudpot/app/views/main/index.html.erb:3:in `_app_views_main_index_html_erb___3792441971629584608_2176679420'
+  actionview (4.1.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/anchordesk/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/anchordesk/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/anchordesk/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/anchordesk/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2165252800/variables" for 127.0.0.1 at 2014-04-28 14:41:58 +0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+Processing by MainController#index as HTML
+  [1m[36mMenu Load (0.5ms)[0m  [1mSELECT  "menus".* FROM "menus"   ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered main/index.html.erb within layouts/application (108.5ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."remember_token" = '3f89a5fe7a261f5fd73c243a2476c7134abe33b3' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (13.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 529ms (Views: 523.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/resipi.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:08 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/bootstrap-select.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/bootstrap-switch.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/flatui-checkbox.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/flatui-fileinput.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/flatui-radio.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/icon-font-ie7.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery.placeholder.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery.tagsinput.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/jquery.ui.touch-punch.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/plugin.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/resipi.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/typeahead.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/vendor/jquery-1.10.2.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/vendor/modernizr-2.6.2.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:09 +0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+Processing by MainController#index as HTML
+  [1m[35mMenu Load (0.6ms)[0m  SELECT  "menus".* FROM "menus"   ORDER BY created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered main/index.html.erb within layouts/application (5.8ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."remember_token" = '3f89a5fe7a261f5fd73c243a2476c7134abe33b3' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/resipi.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/bootstrap-select.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/bootstrap-switch.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/flatui-fileinput.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/flatui-radio.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/flatui-checkbox.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/icon-font-ie7.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery.placeholder.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery.tagsinput.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/jquery.ui.touch-punch.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/plugin.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/resipi.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/typeahead.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/vendor/jquery-1.10.2.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:24 +0800
+
+
+Started GET "/assets/vendor/modernizr-2.6.2.min.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:25 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:25 +0800
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-04-28 14:42:25 +0800
