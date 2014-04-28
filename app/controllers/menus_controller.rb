@@ -11,6 +11,8 @@ class MenusController < ApplicationController
   end
 
   def create
+    @levels = Level.all
+    @categories = Category.all
     @menu = current_user.menus.new(menu_params) do |t|
       uploaded_io = params[:menu][:image]
 

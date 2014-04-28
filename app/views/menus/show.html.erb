@@ -1,30 +1,31 @@
 <div class="container">
 
-  <div class="page-header">
-    <h1><%= @menu.title %> <small>by: <%= link_to @user.name, user_path %></small></h1>
-    <p class="lead"><%= @menu.description %></p>
-    <div class="details">
-      <p>Level <span class="label label-primary"><%= @level.description %></span></p>
-      <p>Category <span class="label label-primary"><%= @category.description %></span></p>
-      <p>Serve for <span class="label label-primary"><%= @menu.serve %> people</span></p>
-      <p>Cooking Time <span class="label label-primary"><%= @menu.cooking_time %></span></p>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag "../uploads/" + @menu.filename, :width => '328px', class: 'img-rounded' %>
+    </div>
+    <div class="col-md-8">
+        <h2><%= @menu.title %></h2>
+        <p class="lead"><%= @menu.description %></p>
+        <div class="details">
+          <p>Level <span class="label label-primary"><%= @level.description %></span></p>
+          <p>Category <span class="label label-primary"><%= @category.description %></span></p>
+          <p>Serve for <span class="label label-primary"><%= @menu.serve %> people</span></p>
+          <p>Cooking Time <span class="label label-primary"><%= @menu.cooking_time %></span></p>
+          <p>By <%= link_to @user.name, user_path %></p>
+        </div>
     </div>
   </div>
-   
-  <p>
-    <strong>Ingredient:</strong>
-    <%= simple_format(@menu.ingredient) %>
-  </p>
-   
-  <p>
-    <strong>Preparation:</strong>
-    <%= simple_format(@menu.preparation) %>
-  </p>
-   
-
-  <p>
-  	<strong>Picture:</strong><br />
-  	<%= image_tag "../uploads/" + @menu.filename, :width => '200px', class: 'img-rounded' %>
-  </p>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <p class="lead">Ingredient:</p>
+      <%= simple_format(@menu.ingredient) %>
+    </div>
+    <div class="col-md-6">
+      <p class="lead">Preparation:</p>
+      <%= simple_format(@menu.preparation) %>
+    </div>
+  </div>
 
 </div>

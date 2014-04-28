@@ -1,63 +1,66 @@
 <% provide(:title, "Edit user") %>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 form-bg">
-
-    <div class="page-header">
-      <h1>Update my profile</h1>
+<div class="container">
+  <div class="page-header">
+    <h1>Update my profile</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+          <center><%= gravatar_for @user, size: 300, class: 'img-rounded' %></center>
+          <p class="text-center"><a href="http://gravatar.com/emails">change</a></p>
+        </div>
     </div>
+    <div class="col-md-8">
+      <%= form_for(@user) do |f| %>
+      <form class="form-horizontal" role="form">
+        <%= render 'shared/error_messages', object: f.object %>
 
-    <%= form_for(@user) do |f| %>
-    <form class="form-horizontal" role="form">
-      <%= render 'shared/error_messages', object: f.object %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <center><%= gravatar_for @user, size: 220, class: 'img-rounded' %></center>
-        <p class="text-center"><a href="http://gravatar.com/emails">change</a></p>
-      </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= f.label :intro %>
+          <%= f.text_field :intro, class: 'form-control' %>
+          <p class="help-block">Not more than 150 words.</p>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.text_field :email, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= f.label :url %>
+          <%= f.text_field :url, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :intro %>
-        <%= f.text_field :intro, class: 'form-control' %>
-        <p class="help-block">Not more than 150 words.</p>
-      </div>
+        <div class="form-group">
+          <%= f.label :location %>
+          <%= f.text_field :location, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :url %>
-        <%= f.text_field :url, class: 'form-control' %>
-      </div>
+        <p>After make some changes, please insert your password & confirmation password to validate</p>
 
-      <div class="form-group">
-        <%= f.label :location %>
-        <%= f.text_field :location, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirm Password" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit "Update profile", class: "btn btn-large btn-primary" %>
-      </div>
-    </form>
-    <% end %>
-
+        <div class="form-group">
+          <%= f.submit "Update profile", class: "btn btn-large btn-primary" %>
+        </div>
+      </form>
+      <% end %>
+    </div>
   </div>
 </div>
 

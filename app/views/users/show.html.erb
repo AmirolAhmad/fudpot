@@ -1,9 +1,10 @@
 <% provide(:title, @user.name) %>
 
+<div class="container">
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
-
+</div>
 <article class="color-grey">
   <div class="container">
     <div class="row">
@@ -48,10 +49,8 @@
         </div>
         <div class="panel-body">
           <%= image_tag "../uploads/" + menu.filename, :class => 'img-thumbnail img-recipe' %>
-          <p><%=h truncate(menu.ingredient) %></p>
         </div>
         <div class="panel-footer">
-          <p><%= h wrap(truncate(menu.description, :length => 80)) %></p>
           <p style="line-height:12px;">
             <small>
               Posted <%= time_ago_in_words(menu.created_at) %> ago <br />

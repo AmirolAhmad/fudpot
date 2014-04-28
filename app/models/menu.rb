@@ -6,6 +6,9 @@ class Menu < ActiveRecord::Base
 	validates :title, presence: true, length: { maximum: 50 }
 	validates :ingredient, presence: true, length: { maximum: 10000 }
 	validates :description, presence: true, length: { maximum: 10000 }
+	validates :preparation, presence: true
+	validates :serve, presence: true, numericality: { only_integer: true }
+	validates :cooking_time, presence: true
 	validates :filename, presence: true
 	validates :user_id, presence: true
 	validates :level_id, presence: true
