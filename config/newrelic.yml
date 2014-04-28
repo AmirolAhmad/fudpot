@@ -117,6 +117,8 @@ common: &default_settings
   # the transactions including any SQL statements issued.
   transaction_tracer:
 
+  transaction_tracer.explain_enabled: false
+
     # Transaction tracer is enabled by default. Set this to false to
     # turn it off. This feature is only available at the Professional
     # and above product levels.
