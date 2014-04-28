@@ -70,6 +70,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.3)
     multi_json (1.9.2)
+    newrelic_rpm (3.8.0.218)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -149,6 +150,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  newrelic_rpm
   paperclip (~> 4.1)
   pg
   rails (= 4.1.0)
